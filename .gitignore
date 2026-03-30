@@ -1,0 +1,20 @@
+# Node
+node_modules/
+dist/
+.nest/
+
+# Go
+bin/
+coverage.out
+
+# .NET
+bin/
+obj/
+
+# OS / editors
+.DS_Store
+.vscode/
+.idea/
+.env
+
+gin-api
