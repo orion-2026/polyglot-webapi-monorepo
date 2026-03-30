@@ -17,4 +17,4 @@ obj/
 .idea/
 .env
 
-gin-api
+apps/gin-api/gin-api
