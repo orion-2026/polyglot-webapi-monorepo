@@ -4,6 +4,8 @@
   "scripts": {
     "start:nest": "npm --prefix apps/nestjs-api run start",
     "start:gin": "cd apps/gin-api && go run .",
-    "start:dotnet": "cd apps/dotnet10-api && /home/ubuntu/.local/share/dotnet/dotnet run"
+    "start:dotnet": "cd apps/dotnet10-api && /home/ubuntu/.local/share/dotnet/dotnet run",
+    "docker:up": "docker compose up --build",
+    "docker:down": "docker compose down"
   }
 }

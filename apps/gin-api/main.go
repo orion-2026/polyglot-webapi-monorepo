@@ -2,6 +2,7 @@ package main
 
 import (
     "net/http"
+    "time"
 
     "github.com/gin-gonic/gin"
 )
@@ -23,6 +24,7 @@ func main() {
         c.JSON(http.StatusOK, gin.H{
             "message":   "Hello from Go Gin API",
             "framework": "Gin",
+            "timestamp": time.Now().UTC().Format(time.RFC3339),
         })
     })
 

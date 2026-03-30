@@ -1,0 +1,95 @@
+openapi: 3.0.3
+info:
+  title: Polyglot WebAPI Monorepo API
+  version: 1.0.0
+  description: Shared contract for the .NET 10, Gin, and NestJS sample APIs.
+servers:
+  - url: http://localhost:8080
+    description: .NET 10 WebAPI
+  - url: http://localhost:8081
+    description: Go Gin API
+  - url: http://localhost:3000
+    description: NestJS API
+paths:
+  /health:
+    get:
+      summary: Health check
+      operationId: getHealth
+      responses:
+        '200':
+          description: Service health payload
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HealthResponse'
+  /api/hello:
+    get:
+      summary: Hello payload
+      operationId: getHello
+      responses:
+        '200':
+          description: Hello response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HelloResponse'
+  /api/todos:
+    get:
+      summary: Sample todo list
+      operationId: getTodos
+      responses:
+        '200':
+          description: Todo list
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TodoItem'
+components:
+  schemas:
+    HealthResponse:
+      type: object
+      required:
+        - status
+        - service
+      properties:
+        status:
+          type: string
+          example: ok
+        service:
+          type: string
+          example: .NET 10 WebAPI
+    HelloResponse:
+      type: object
+      required:
+        - message
+        - framework
+        - timestamp
+      properties:
+        message:
+          type: string
+          example: Hello from NestJS API
+        framework:
+          type: string
+          example: NestJS
+        timestamp:
+          type: string
+          format: date-time
+          example: '2026-03-30T05:00:00Z'
+    TodoItem:
+      type: object
+      required:
+        - id
+        - title
+        - done
+      properties:
+        id:
+          type: integer
+          example: 1
+        title:
+          type: string
+          example: Create polyglot sample
+        done:
+          type: boolean
+          example: false

@@ -1,0 +1,22 @@
+version: "3.9"
+services:
+  dotnet10-api:
+    build:
+      context: .
+      dockerfile: apps/dotnet10-api/Dockerfile
+    ports:
+      - "8080:8080"
+
+  gin-api:
+    build:
+      context: .
+      dockerfile: apps/gin-api/Dockerfile
+    ports:
+      - "8081:8081"
+
+  nestjs-api:
+    build:
+      context: .
+      dockerfile: apps/nestjs-api/Dockerfile
+    ports:
+      - "3000:3000"

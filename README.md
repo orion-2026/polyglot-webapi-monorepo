@@ -26,7 +26,12 @@ Each service exposes:
 - Gin API: `8081`
 - NestJS API: default Nest port `3000`
 
-## Run
+## Shared API spec
+
+- Root spec file: `openapi.yaml`
+- Goal: keep all three implementations aligned on the same contract
+
+## Run locally
 
 ### .NET 10 WebAPI
 
@@ -50,3 +55,17 @@ cd apps/nestjs-api
 npm install
 npm run start
 ```
+
+## Run with Docker
+
+Build and start all services:
+
+```bash
+docker compose up --build
+```
+
+Then access:
+
+- .NET 10 WebAPI → `http://localhost:8080`
+- Go Gin API → `http://localhost:8081`
+- NestJS API → `http://localhost:3000`
